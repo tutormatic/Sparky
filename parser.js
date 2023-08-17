@@ -129,17 +129,61 @@ fs.readdir("./Code", "utf-8", function(err, files) {
                 if (token[i][0] === "exec") {
                     if (token[i][1] !== "") {
                         if (token[i][1].isString()) {
-                            const pythonProcess = spawn('python', ['./parser.py', token[i][1].remString()]);
+                            const pythonProcess = spawn('python', ['./parser.py', token[i][1].remString(), "exec"]);
             
                             pythonProcess.stdout.on('data', (data) => {
                                 console.log(`${data}`);
                             });
                         } else if (token[i][1].isVariable()) {
-                            const pythonProcess = spawn('python', ['./parser.py', variable[token[i][1]]]);
+                            const pythonProcess = spawn('python', ['./parser.py', variable[token[i][1]], "exec"]);
             
                             pythonProcess.stdout.on('data', (data) => {
                                 console.log(`${data}`);
                             });
+                        }
+                    }
+                }
+
+                if (token[i][0] === "file:read") {
+                    if (token[i][1] !== "") {
+                        if (token[i][2].startsWith("$") && token[i][2].slice(1) !== "") {
+                            if (token[i][1].isString()) {
+                                variable[token[i][2].slice(1)] = fs.readFileSync("./Code/" + token[i][1].remString(), "utf-8");
+                            } else if (token[i][1].isVariable()) {
+                                variable[token[i][2].slice(1)] = fs.readFileSync("./Code/" + variable[token[i][1]], "utf-8");
+                            }
+                        }
+                    }
+                }
+
+                if (token[i][0] === "file:write") {
+                    if (token[i][1] !== "") {
+                        if (token[i][2] !== "") {
+                            if (token[i][1].isString()) {
+                                if (token[i][2].isString()) {
+                                    fs.writeFileSync("./Code/" + token[i][1].remString(), token[i][2].remString());
+                                } else if (token[i][2].isNumber()) {
+                                    fs.writeFileSync("./Code/" + token[i][1].remString(), Number(token[i][2]));
+                                } else if (token[i][2].isVariable()) {
+                                    fs.writeFileSync("./Code/" + token[i][1].remString(), variable[token[i][2]]);
+                                }
+                            } else if (token[i][1].isNumber()) {
+                                if (token[i][2].isString()) {
+                                    fs.writeFileSync("./Code/" + Number(token[i][1]), token[i][2].remString());
+                                } else if (token[i][2].isNumber()) {
+                                    fs.writeFileSync("./Code/" + Number(token[i][1]), Number(token[i][2]));
+                                } else if (token[i][2].isVariable()) {
+                                    fs.writeFileSync("./Code/" + Number(token[i][1]), variable[token[i][2]]);
+                                }
+                            } else if (token[i][1].isVariable()) {
+                                if (token[i][2].isString()) {
+                                    fs.writeFileSync("./Code/" + variable[token[i][1]], token[i][2].remString());
+                                } else if (token[i][2].isNumber()) {
+                                    fs.writeFileSync("./Code/" + variable[token[i][1]], Number(token[i][2]));
+                                } else if (token[i][2].isVariable()) {
+                                    fs.writeFileSync("./Code/" + variable[token[i][1]], variable[token[i][2]]);
+                                }
+                            }
                         }
                     }
                 }
