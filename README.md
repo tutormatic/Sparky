@@ -18,6 +18,10 @@ We encourage contributions to make Sparky even better. If you'd like to contribu
 
 3. **Submit a Pull Request:** Push your changes to your forked repository and submit a pull request to the main Sparky repository. Your changes will be reviewed by the maintainers.
 
+## Installation
+1. Install the dependencies using the command "npm install"
+2. Now you can code in the "Code" folder!
+
 ## Community
 
 Join our friendly community on Discord to connect with other Sparky enthusiasts, share ideas, and get help if needed.
