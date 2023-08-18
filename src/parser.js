@@ -3,7 +3,6 @@ const chalk = require("chalk");
 const prompt = require('prompt-sync')();
 const { spawn, exec } = require('child_process');
 const { app, BrowserWindow } = require('electron');
-const http = require('http');
 const lex = require("./lexer");
 const { isString, remString } = require("./functions");
 const path = require("path");
