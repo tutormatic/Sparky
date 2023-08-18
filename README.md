@@ -16,11 +16,12 @@ We encourage contributions to make Sparky even better. If you'd like to contribu
 
 2. **Make Changes:** Create a new branch in your forked repository, make your changes, and commit them.
 
-3. **Submit a Pull Request:** Push your changes to your forked repository and submit a pull request to the main Sparky repository. Your changes will be reviewed by the maintainers.
+3. **Submit a Pull Request:** Push your changes to your forked repository and submit a pull request to the main Sparky repository. Your changes will be reviewed by the maintainers. If we don't respond to your pull request please talk to us on the [Discord](https://discord.gg/kgyaUuZxsn) server.
 
 ## Installation
+*Please make sure you have [Node.js](https://nodejs.org/en) and [Python](https://www.python.org/) already installed.*
 1. Install the dependencies using the command "npm install"
-2. Now you can code in the "Code" folder!
+2. Use the bat file you need to execute the code (Windows: .bat, Mac: .sh). The command should be like this: `./exec/sparky.bat <Your .spk file path>` for windows and `./exec/sparky.sh <Your .spk file path>` for mac.
 
 ## Community
 
@@ -29,10 +30,6 @@ Join our friendly community on Discord to connect with other Sparky enthusiasts,
 - [Join Sparky Discord](https://discord.gg/kgyaUuZxsn)
 
 Feel free to start discussions, share your experiences, and collaborate with fellow programmers who are passionate about Sparky.
-
-## License
-
-Sparky is released under the XYZ License. You can find the full text of the license in the LICENSE file.
 
 ---
 
