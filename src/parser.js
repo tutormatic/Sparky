@@ -5,7 +5,6 @@ const { spawn, exec } = require('child_process');
 const { app, BrowserWindow } = require('electron');
 const lex = require("./lexer");
 const { isString, remString } = require("./functions");
-const path = require("path");
 
 fs.readdir("./Code", "utf-8", function(err, files) {
     if (process.argv[2].endsWith(".spk")) {
