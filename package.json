@@ -1,0 +1,27 @@
+{
+  "name": "sparky",
+  "version": "1.0.0",
+  "description": "Sparky is a programming language.",
+  "main": "./src/parser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tutormatic/Sparky.git"
+  },
+  "keywords": [
+    "Sparky"
+  ],
+  "author": "Sparky2you & Community",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tutormatic/Sparky/issues"
+  },
+  "homepage": "https://github.com/tutormatic/Sparky#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "prompt-sync": "^4.2.0",
+    "child_process": "^1.0.2"
+  }  
+}
